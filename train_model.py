@@ -214,10 +214,12 @@ if __name__ == "__main__":
                 raise ValueError("input incomplete")
             options['learn_rate'] = float(sys.argv[2])
             options['iters'] = int(sys.argv[3])
-            if options['learn_rate'] <= 0 or options['iters'] <= 0:
-                raise ValueError("must be positive numbers")
+            if not 0 <= options['learn_rate'] <= 1:
+                raise ValueError("learn_rate must be in range [0,1]")
+            if options['iters'] < 50:
+                raise ValueError("iterations must be ≥ 50")
         except ValueError as e:
-            print(f"\n  {RED}ValueError:{NC} learn_rate and iterations {e}\n")
+            print(f"\n  {RED}ValueError:{NC} {e}\n")
             print("  try -h for more information\n")
             sys.exit(1)
 
