@@ -153,7 +153,7 @@ def main():
         sys.exit(1)
 
 
-def handle_interrupt(signum, frame):
+def handle_interrupt(signum, frame) -> None:
     '''
     [HANDLE_INTERRUPT] Signal handler for SIGINT (Ctrl+C).
     '''
@@ -179,7 +179,7 @@ def print_usage() -> None:
     print(usage)
 
 
-def set_flag(opt: str):
+def set_flag(opt: str) -> None:
     '''
     [SET_FLAG] Sets user-defined options based on command-line arguments.
     '''
